@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST demo</title>
+  </head>
+  <body>
+    <h1><a href="/">REST Demo</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/covid/">covid</a></li>
+        <li><a href="/quiz/">quiz</a></li>
+        <li><a href="/food/">food</a></li>
+        <li><a href="/giphy/">giphy (default)</a></li>
+        <li><a href="/giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
+      </ul>
+    </nav>
+
+    <div id="output"></div>
+
+    <!-- Food -->
+    <!-- No template -->
+
+    <script type="module">
+      import {food} from "/script.js"
+      const output = document.querySelector("#output")
+      food({ output }).catch(console.error)
+    </script>
+  </body>
+</html>

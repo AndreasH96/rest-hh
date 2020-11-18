@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST demo</title>
+  </head>
+  <body>
+    <h1><a href="/">REST Demo</a></h1>
+    <nav>
+      <ul>
+        <li><a href="/covid/">covid</a></li>
+        <li><a href="/quiz/">quiz</a></li>
+        <li><a href="/food/">food</a></li>
+        <li><a href="/giphy/">giphy (default)</a></li>
+        <li><a href="/giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
+      </ul>
+    </nav>
+
+    <div id="output"></div>
+
+    <!-- Covid -->
+    <template id="covidTableTemplate">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Confirmed</th>
+            <th>Recovered</th>
+            <th>Active</th>
+            <th>Deaths</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- existing data could optionally be included here -->
+        </tbody>
+      </table>
+    </template>
+
+    <template id="covidRowTemplate">
+      <tr>
+        <td data-name="Date"></td>
+        <td data-name="Confirmed"></td>
+        <td data-name="Recovered"></td>
+        <td data-name="Active"></td>
+        <td data-name="Deaths"></td>
+      </tr>
+    </template>
+
+
+    <script type="module">
+      import {covid} from "/script.js"
+      const output = document.querySelector("#output")
+      const covidTableTemplate = document.querySelector("#covidTableTemplate")
+      const covidRowTemplate = document.querySelector("#covidRowTemplate")
+      covid({
+        output,
+        covidTableTemplate,
+        covidRowTemplate,
+       }).catch(console.error)
+    </script>
+  </body>
+</html>
