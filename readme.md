@@ -4,25 +4,6 @@ https://github.com/marmelab/awesome-rest
 https://github.com/dspinellis/awesome-rest-apis
 https://github.com/public-apis/public-apis
 
-## https://docs.openaq.org/
-
-```sh
-curl https://api.openaq.org/v1/countries | jq .
-
-res=$(curl "https://api.openaq.org/v1/latest?country=SE") && \
-echo "$res" | jq 'del(.results[].measurements) | del(.results[].coordinates)'
-```
-
-## https://world.openfoodfacts.org/data
-
-```sh
-res=$(curl "https://world.openfoodfacts.org/api/v0/product/737628064502.json") && \
-echo "$res" | jq '.'
-
-res=$(curl "https://world.openfoodfacts.org/api/v0/product") && \
-echo "$res" | jq '.'
-```
-
 ## https://opentdb.com/api_config.php
 
 ```sh
