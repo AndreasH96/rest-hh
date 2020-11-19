@@ -1,17 +1,29 @@
 # REST
 
-https://github.com/marmelab/awesome-rest
-https://github.com/dspinellis/awesome-rest-apis
-https://github.com/public-apis/public-apis
+Examples of using public APIs.
 
-## https://opentdb.com/api_config.php
+## More APIs
+
+- https://github.com/marmelab/awesome-rest
+- https://github.com/dspinellis/awesome-rest-apis
+- https://github.com/public-apis/public-apis
+
+## Web client
+
+JavaScript API client running in a webpage https://pirfalt.github.io/rest-hh/.
+
+## Command line client
+
+cURL API client. API exploration.
+
+### https://opentdb.com/api_config.php
 
 ```sh
 curl "https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=boolean" > response.json
 jq '.' < response.json
 ```
 
-## https://foodish-api.herokuapp.com/
+### https://foodish-api.herokuapp.com/
 
 ```sh
 curl "https://foodish-api.herokuapp.com/api/" > response.json
@@ -25,7 +37,7 @@ curl $(jq '.image' -r) > img.jpg < response.json
 code img.jpg
 ```
 
-## https://xkcd.com/json.html
+### https://xkcd.com/json.html
 
 ```sh
 curl "https://xkcd.com/info.0.json" > response.json
@@ -37,14 +49,14 @@ jq '.' < response.json
 curl $(jq '.img' -r < response.json) > img.jpg
 ```
 
-## https://www.tronalddump.io/
+### https://www.tronalddump.io/
 
 ```sh
 curl "https://www.tronalddump.io/random/quote" > response.json
 jq '.' < response.json
 ```
 
-## https://covid19api.com/
+### https://covid19api.com/
 
 ```sh
 curl --location "https://api.covid19api.com/" > response.json
@@ -69,14 +81,14 @@ jsonui < response_total.json
 
 ```
 
-## https://jobs.github.com/api
+### https://jobs.github.com/api
 
 ```sh
 curl -H "Accept: application/json" "https://jobs.github.com/positions?location=uk&search=java&full_time=true" > response.json
 jq '.' < response.json
 ```
 
-## https://developers.giphy.com/docs/api/
+### https://developers.giphy.com/docs/api/
 
 ```sh
 # Public beta key
