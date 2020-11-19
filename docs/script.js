@@ -79,24 +79,24 @@ export async function quiz({ output, template }) {
 
 export async function food({ output, foodType = "burger", width = 300 } = {}) {
   // Random food
-  const response = await fetch("https://foodish-api.herokuapp.com/api/");
-  const data = await response.json();
-  logJSON(data);
+  const responseRandom = await fetch("https://foodish-api.herokuapp.com/api/");
+  const dataRandom = await responseRandom.json();
+  logJSON(dataRandom);
   const randomImg = document.createElement("img");
-  randomImg.src = data.image;
+  randomImg.src = dataRandom.image;
   randomImg.width = width;
   output.appendChild(randomImg);
 
   // Typed random food
-  response = await fetch(
+  const responseTyped = await fetch(
     `https://foodish-api.herokuapp.com/api/images/${foodType}`
   );
-  data = await response.json();
-  logJSON(data);
-  const idlyImg = document.createElement("img");
-  idlyImg.src = data.image;
-  idlyImg.width = width;
-  output.appendChild(idlyImg);
+  const dataTyped = await responseTyped.json();
+  logJSON(dataTyped);
+  const idlyTyped = document.createElement("img");
+  idlyTyped.src = dataTyped.image;
+  idlyTyped.width = width;
+  output.appendChild(idlyTyped);
 }
 
 export async function giphy({
