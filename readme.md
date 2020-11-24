@@ -116,3 +116,44 @@ jq '.' < response.json
 
 curl $(jq '.data[0].images.original.url' -r < response.json) > img.gif
 ```
+
+### https://${DEPLOYMENT}.ngrok.io/
+
+Questions
+
+```sh
+DEPLOYMENT='342729fbd16e'
+
+# GET list
+curl "https://${DEPLOYMENT}.ngrok.io/" > response.json
+jq '.' < response.json
+
+# GET Specific
+curl "https://${DEPLOYMENT}.ngrok.io/0" > response.json
+jq '.' < response.json
+
+# POST
+curl -X POST "https://${DEPLOYMENT}.ngrok.io/" -H 'content-type: application/json' -d '{ "question": "how does this work?" }' > response.json
+jq '.' < response.json
+
+curl "https://${DEPLOYMENT}.ngrok.io/1" > response.json
+jq '.' < response.json
+
+# PUT
+curl -X PUT "https://${DEPLOYMENT}.ngrok.io/0" -H 'content-type: application/json' -d '{ "question": "changed" }' > response.json
+jq '.' < response.json
+
+curl -X PUT "https://${DEPLOYMENT}.ngrok.io/300" -H 'content-type: application/json' -d '{ "hello": true }' > response.json
+jq '.' < response.json
+
+# DELETE
+curl "https://${DEPLOYMENT}.ngrok.io/0" > response.json
+jq '.' < response.json
+
+curl -X DELETE "https://${DEPLOYMENT}.ngrok.io/0" -H 'content-type: application/json' > response.json
+jq '.' < response.json
+
+curl "https://${DEPLOYMENT}.ngrok.io/300" > response.json
+jq '.' < response.json
+
+```
