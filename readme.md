@@ -150,7 +150,7 @@ jq '.' < response.json
 curl "https://${DEPLOYMENT}.ngrok.io/0" > response.json
 jq '.' < response.json
 
-curl -X DELETE "https://${DEPLOYMENT}.ngrok.io/0" -H 'content-type: application/json' > response.json
+curl -X DELETE "https://${DEPLOYMENT}.ngrok.io/0" > response.json
 jq '.' < response.json
 
 curl "https://${DEPLOYMENT}.ngrok.io/300" > response.json
