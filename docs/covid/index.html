@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REST demo</title>
+    <link href="/assets/normalize.css" rel="stylesheet" />
+    <link href="/assets/style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1><a href="..">REST Demo</a></h1>
-    <p><a href="https://github.com/pirfalt/rest-hh">Source</a></p>
-    <nav>
-      <ul>
-        <li><a href="../covid/">covid</a></li>
-        <li><a href="../quiz/">quiz</a></li>
-        <li><a href="../food/">food</a></li>
-        <li><a href="../giphy/">giphy (default)</a></li>
-        <li><a href="../giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
-      </ul>
-    </nav>
 
-    <div id="output"></div>
+    <header class="mainblock page-header">
+      <h1 class="page-header-h1"><a href="..">REST Demo</a></h1>
+      <p><a href="https://github.com/pirfalt/rest-hh">Source</a></p>
+    </header>
+
+    <div class="mainblock page-main">
+      <nav class="page-main">
+        <ul>
+          <li><a href="../covid/">covid</a></li>
+          <li><a href="../quiz/">quiz</a></li>
+          <li><a href="../food/">food</a></li>
+          <li><a href="../giphy/">giphy (default)</a></li>
+          <li><a href="../giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
+        </ul>
+      </nav>
+
+      <div id="output"></div>
+    </div>
+
 
     <!-- Covid -->
     <template id="covidTableTemplate">
