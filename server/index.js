@@ -61,6 +61,11 @@ app.put("/:id", function (req, res) {
   const id = String(req.params.id);
   const existed = db.has(id);
   db.set(id, req.body);
+  if (!existed) {
+    res.status(201);
+  } else {
+    res.status(200);
+  }
   res.send({
     id,
     created: !existed,
