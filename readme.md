@@ -32,7 +32,7 @@ jq '.' < response.json
 curl "https://foodish-api.herokuapp.com/api/images/idly" > response.json
 jq '.' < response.json
 
-curl $(jq '.image' -r) > img.jpg < response.json
+curl $(jq '.image' -r < response.json) > img.jpg
 
 code img.jpg
 ```
