@@ -1,36 +1,4 @@
 // APIs
-export async function covid({
-  output,
-  covidTableTemplate,
-  covidRowTemplate,
-} = {}) {
-  const response = await fetch(
-    "https://api.covid19api.com/total/country/sweden"
-  );
-  const data = await response.json();
-  console.table(
-    data.slice(0, 10).map((d) => ({
-      Date: d.Date,
-      Confirmed: d.Confirmed,
-      Recovered: d.Recovered,
-      Active: d.Active,
-      Deaths: d.Deaths,
-    }))
-  );
-
-  const covidOutput = covidTableTemplate.content.cloneNode(true);
-  const covidTableBody = covidOutput.querySelector("tbody");
-  data.forEach((d) => {
-    const t = covidRowTemplate.content.cloneNode(true);
-    t.querySelector("[data-name=Date]").textContent = d.Date;
-    t.querySelector("[data-name=Confirmed]").textContent = d.Confirmed;
-    t.querySelector("[data-name=Recovered]").textContent = d.Recovered;
-    t.querySelector("[data-name=Active]").textContent = d.Active;
-    t.querySelector("[data-name=Deaths]").textContent = d.Deaths;
-    covidTableBody.appendChild(t);
-  });
-  output.appendChild(covidOutput);
-}
 
 export async function quiz({ output, template }) {
   const computerScienceURL =
