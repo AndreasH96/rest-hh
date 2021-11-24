@@ -119,6 +119,6 @@ export async function giphy({
 }
 
 // Helpers
-function logJSON(v) {
+export function logJSON(v) {
   console.log(JSON.stringify(v, null, 2));
 }
