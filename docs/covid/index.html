@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REST demo</title>
-    <link href="/assets/normalize.css" rel="stylesheet" />
-    <link href="/assets/style.css" rel="stylesheet" />
+    <link href="../assets/normalize.css" rel="stylesheet" />
+    <link href="../assets/style.css" rel="stylesheet" />
   </head>
   <body>
-
     <header class="mainblock page-header">
       <h1 class="page-header-h1"><a href="..">REST Demo</a></h1>
       <p><a href="https://github.com/pirfalt/rest-hh">Source</a></p>
@@ -21,13 +20,16 @@
           <li><a href="../quiz/">quiz</a></li>
           <li><a href="../food/">food</a></li>
           <li><a href="../giphy/">giphy (default)</a></li>
-          <li><a href="../giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
+          <li>
+            <a href="../giphy/?q=ryan+gossling&offset=0">
+              giphy (query_params)
+            </a>
+          </li>
         </ul>
       </nav>
 
       <div id="output"></div>
     </div>
-
 
     <!-- Covid -->
     <template id="covidTableTemplate">
@@ -57,17 +59,16 @@
       </tr>
     </template>
 
-
     <script type="module">
-      import {covid} from "../script.js"
-      const output = document.querySelector("#output")
-      const covidTableTemplate = document.querySelector("#covidTableTemplate")
-      const covidRowTemplate = document.querySelector("#covidRowTemplate")
+      import { covid } from "../script.js";
+      const output = document.querySelector("#output");
+      const covidTableTemplate = document.querySelector("#covidTableTemplate");
+      const covidRowTemplate = document.querySelector("#covidRowTemplate");
       covid({
         output,
         covidTableTemplate,
         covidRowTemplate,
-       }).catch(console.error)
+      }).catch(console.error);
     </script>
   </body>
 </html>

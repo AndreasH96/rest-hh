@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REST demo</title>
-    <link href="/assets/normalize.css" rel="stylesheet" />
-    <link href="/assets/style.css" rel="stylesheet" />
+    <link href="../assets/normalize.css" rel="stylesheet" />
+    <link href="../assets/style.css" rel="stylesheet" />
   </head>
   <body>
-
     <header class="mainblock page-header">
       <h1 class="page-header-h1"><a href="..">REST Demo</a></h1>
       <p><a href="https://github.com/pirfalt/rest-hh">Source</a></p>
@@ -21,7 +20,11 @@
           <li><a href="../quiz/">quiz</a></li>
           <li><a href="../food/">food</a></li>
           <li><a href="../giphy/">giphy (default)</a></li>
-          <li><a href="../giphy/?q=ryan+gossling&offset=0">giphy (query_params)</a></li>
+          <li>
+            <a href="../giphy/?q=ryan+gossling&offset=0">
+              giphy (query_params)
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -33,23 +36,39 @@
       <form data-name="question_form">
         <p data-name="question_p">question</p>
 
-        <input name="question" type="radio" id="question_yes" value="True" data-name="question_yes">
+        <input
+          name="question"
+          type="radio"
+          id="question_yes"
+          value="True"
+          data-name="question_yes"
+        />
         <label for="question_yes">yes</label>
 
-        <input name="question" type="radio" id="question_no" value="False" data-name="question_no">
+        <input
+          name="question"
+          type="radio"
+          id="question_no"
+          value="False"
+          data-name="question_no"
+        />
         <label for="question_no">no</label>
 
-        <input type="submit">
+        <input type="submit" />
 
-        <output name="question_output" for="question_yes question_no" data-name="question_output"></output>
+        <output
+          name="question_output"
+          for="question_yes question_no"
+          data-name="question_output"
+        ></output>
       </form>
     </template>
 
     <script type="module">
-      import {quiz} from "../script.js"
-      const output = document.querySelector("#output")
-      const template = document.querySelector("#questionTemplate")
-      quiz({ output, template }).catch(console.error)
+      import { quiz } from "../script.js";
+      const output = document.querySelector("#output");
+      const template = document.querySelector("#questionTemplate");
+      quiz({ output, template }).catch(console.error);
     </script>
   </body>
 </html>
