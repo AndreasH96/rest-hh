@@ -64,14 +64,14 @@ jq '.' < response.json
 
 curl --location "https://api.covid19api.com/summary" > response.json
 jq '.' < response.json
-jsonui response.json
+jsonui < response.json
 
 curl --location "https://api.covid19api.com/countries" > response.json
 jq '.' < response.json
 
 
 curl --location "https://api.covid19api.com/dayone/country/sweden" > response_dayone.json
-jq '.' < response_dayone.json| tail -n 30
+jq '.' < response_dayone.json | tail -n 30
 jsonui < response_dayone.json
 
 
@@ -79,13 +79,6 @@ curl --location "https://api.covid19api.com/total/country/sweden" > response_tot
 jq '.' < response_total.json | tail -n 30
 jsonui < response_total.json
 
-```
-
-### https://jobs.github.com/api
-
-```sh
-curl -H "Accept: application/json" "https://jobs.github.com/positions?location=uk&search=java&full_time=true" > response.json
-jq '.' < response.json
 ```
 
 ### https://developers.giphy.com/docs/api/
@@ -99,7 +92,7 @@ YOUR_API_KEY='dc6zaTOxFJmzC'
 curl  "https://api.giphy.com/v1/gifs/random?limit=5&rating=pg&api_key=$YOUR_API_KEY" > response.json
 jq '.' < response.json
 
-curl $(jq '.data.image_url' -r < response.json) > img.gif
+curl $(jq '.data.images.downsized.url' -r < response.json) > img.gif
 
 # Open
 code img.gif
