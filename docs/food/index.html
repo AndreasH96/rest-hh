@@ -35,9 +35,40 @@
     <!-- No template -->
 
     <script type="module">
-      import { food } from "../script.js";
+      import { logJSON } from "../script.js";
+
+      async function fetchImage({ foodType, imageWidth } = {}) {
+        const url =
+          foodType != null
+            ? `https://foodish-api.herokuapp.com/api/images/${foodType}`
+            : "https://foodish-api.herokuapp.com/api/";
+        const response = await fetch(url);
+        const data = await response.json();
+
+        // Log
+        logJSON(data);
+        console.log(data);
+
+        // Output image
+        const img = document.createElement("img");
+        img.src = data.image;
+        img.width = imageWidth;
+        return img;
+      }
+
+      // Elements
       const output = document.querySelector("#output");
-      food({ output }).catch(console.error);
+
+      // Input
+      const foodType = "burger";
+      const outputImageWidth = 300;
+      output.appendChild(await fetchImage({ imageWidth: outputImageWidth }));
+      output.appendChild(
+        await fetchImage({
+          foodType: "burger",
+          imageWidth: outputImageWidth,
+        })
+      );
     </script>
   </body>
 </html>
