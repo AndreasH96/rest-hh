@@ -35,16 +35,33 @@
     <!-- No template -->
 
     <script type="module">
-      import { giphy } from "../script.js";
-      const queryParams = new URLSearchParams(window.location.search);
+      import { logJSON } from "../script.js";
+
+      const YOUR_API_KEY = "dc6zaTOxFJmzC"; // Public beta key. https://giphy.api-docs.io/1.0/welcome/access-and-api-keys
+
+      // Element
       const output = document.querySelector("#output");
-      const options = {
-        output,
-        limit: queryParams.get("limit") ?? undefined,
-        offset: queryParams.get("offset") ?? undefined,
-        q: queryParams.get("q") ?? undefined,
-      };
-      giphy(options).catch(console.error);
+
+      // URL inputs
+      const queryParams = new URLSearchParams(window.location.search);
+      const limit = queryParams.get("limit") ?? undefined;
+      const offset = queryParams.get("offset") ?? undefined;
+      const q = queryParams.get("q") ?? undefined;
+
+      // Search giphy for gif
+      const response = await fetch(
+        `https://api.giphy.com/v1/gifs/search?rating=pg&api_key=${YOUR_API_KEY}&limit=${limit}&offset=${offset}&q=${q}`
+      );
+      const data = await response.json();
+
+      // Log
+      logJSON(data);
+      console.log(data);
+
+      // Output
+      const gif = document.createElement("img");
+      gif.src = data.data[0].images.original.url;
+      output.appendChild(gif);
     </script>
   </body>
 </html>

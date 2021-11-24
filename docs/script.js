@@ -67,25 +67,6 @@ export async function food({ output, foodType = "burger", width = 300 } = {}) {
   output.appendChild(idlyTyped);
 }
 
-export async function giphy({
-  output,
-  limit = "1",
-  offset = "1",
-  q = "magic",
-  YOUR_API_KEY = "dc6zaTOxFJmzC", // Public beta key. https://giphy.api-docs.io/1.0/welcome/access-and-api-keys
-} = {}) {
-  // Search giphy for gif
-  const response = await fetch(
-    `https://api.giphy.com/v1/gifs/search?rating=pg&api_key=${YOUR_API_KEY}&limit=${limit}&offset=${offset}&q=${q}`
-  );
-  const data = await response.json();
-  console.log(data);
-  logJSON(data);
-  const gif = document.createElement("img");
-  gif.src = data.data[0].images.original.url;
-  output.appendChild(gif);
-}
-
 // Helpers
 export function logJSON(v) {
   console.log(JSON.stringify(v, null, 2));
