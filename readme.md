@@ -14,7 +14,44 @@ JavaScript API client running in a webpage https://pirfalt.github.io/rest-hh/.
 
 ## Command line client
 
-cURL API client. API exploration.
+cURL API client.
+
+I like it for API exploration.
+
+```sh
+# Defaults
+curl "http://api.open-notify.org/astros.json"
+
+# With headers
+curl -i "http://api.open-notify.org/astros.json"
+```
+
+## Python script client
+
+```python
+python <<EOF
+import requests
+
+response = requests.get("http://api.open-notify.org/astros.json")
+
+print(response)
+print(response.json())
+EOF
+```
+
+## NodeJS script client
+
+```js
+node --input-type=module <<EOF
+import fetch from "node-fetch";
+
+const response = await fetch("http://api.open-notify.org/astros.json")
+const body = await response.json()
+
+console.log(response.status)
+console.log(body)
+EOF
+```
 
 ### https://opentdb.com/api_config.php
 
