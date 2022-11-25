@@ -47,7 +47,7 @@ def addUser():
 @app.put("/<uid>")
 def updateUser(uid):
     status = 200
-    if (not uid in db.keys()):
+    if (not uid.lower() in db.keys()):
         status = 201
     
     # We can perform same operation as in the POST request
@@ -59,9 +59,9 @@ def updateUser(uid):
 
 @app.delete("/<uid>")
 def deleteUser(uid):
-    if(not uid in db.keys()):
+    if(not uid.lower() in db.keys()):
         return "User not found",404
-    db.pop(uid)
+    db.pop(uid.lower())
     return "Success", 200
     
     
