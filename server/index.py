@@ -10,7 +10,7 @@ class UserSchema(Schema):
     company = fields.Str()
 
 load_dotenv()
-port = os.getenv('PORT') if  os.getenv('PORT') else 9000
+port = os.getenv('PORT') if  os.getenv('PORT') else 5000
 db = {}
 app = Flask(__name__,)
 
