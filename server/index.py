@@ -1,16 +1,18 @@
 from flask import Flask, jsonify, request
 from marshmallow import Schema, fields, ValidationError
+from dotenv import load_dotenv
 import os
+
 
 class UserSchema(Schema):
     name = fields.Str()
     age = fields.Int()
     company = fields.Str()
 
-
-port = os.environ.get("PORT") if  os.environ.get("PORT") else 9000
+load_dotenv()
+port = os.getenv('PORT') if  os.getenv('PORT') else 9000
 db = {}
-app = Flask(__name__)
+app = Flask(__name__,)
 
 
 
@@ -68,4 +70,4 @@ def deleteUser(uid):
 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(host="localhost",port=port)

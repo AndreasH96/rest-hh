@@ -1,2 +1,4 @@
 node_modules/
 response.json
+server/.env
+server/env
